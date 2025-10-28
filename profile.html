@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - FreshBites Canteen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Fresh<span>Bites</span> Canteen</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin.html">Admin Login</a></li>
+                    <li class="nav-item position-relative">
+                        <a class="nav-link" href="cart.html"><i class="bi bi-cart"></i> Cart</a>
+                        <span id="cart-counter" class="position-absolute translate-middle badge rounded-circle bg-danger">0</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <header class="text-center mb-5">
+            <h1 class="fw-bold">Student/User Profile</h1>
+            <p class="lead text-muted">Access your details and past orders.</p>
+        </header>
+
+        <section id="student-login-form" class="row justify-content-center">
+            <div class="col-md-6 p-4 rounded-3 shadow-lg bg-light">
+                <h2 class="text-center mb-4">User Login</h2>
+                <div class="mb-3">
+                    <label for="student-username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="student-username" value="student">
+                </div>
+                <div class="mb-4">
+                    <label for="student-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="student-password" value="user123">
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-warning btn-lg" id="student-login-btn" onclick="window.studentLogin()">Login</button>
+                </div>
+                <p class="mt-3 text-center small text-muted">Default: student / user123</p>
+            </div>
+        </section>
+
+        <section id="student-profile-content" style="display: none;">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="mb-0">Welcome back, <span id="current-user-name"></span>!</h2>
+                <button class="btn btn-danger" id="student-logout-btn" onclick="window.studentLogout()">Logout</button>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card p-3 shadow-sm mb-4">
+                        <h5 class="fw-bold">Account Details</h5>
+                        <p class="mb-1"><strong>Status:</strong> <span class="badge bg-success">Active Student</span></p>
+                        <p class="mb-1"><strong>Email:</strong> <span id="user-email">student@canteen.edu</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card p-3 shadow-sm mb-4">
+                        <h5 class="fw-bold">Quick Links</h5>
+                        <p class="mb-1"><a href="menu.html" class="text-warning">Start a New Order</a></p>
+                        <p class="mb-1"><a href="cart.html" class="text-warning">Review Cart</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="mt-4 mb-3">Recent Orders (Mock Data)</h3>
+            <ul class="list-group shadow-sm">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Order #2025003 - Veg Sandwich & Coffee
+                    <span class="badge bg-primary rounded-pill">$8.00</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Order #2025002 - Apple Pie Slice
+                    <span class="badge bg-primary rounded-pill">$3.50</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="text-center text-lg-start py-4 mt-5">
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-6 mb-4"><h6 class="text-uppercase fw-bold mb-3">FreshBites Canteen</h6><p>A simple, modern canteen focused on fast, fresh, and friendly service.</p></div>
+                <div class="col-md-3 mb-4"><h6 class="text-uppercase fw-bold mb-3">Contact</h6><p><i class="bi bi-envelope me-2"></i> order@freshbites.com</p><p><i class="bi bi-phone me-2"></i> +1 234 567 890</p></div>
+                <div class="col-md-3 mb-4"><h6 class="text-uppercase fw-bold mb-3">Links</h6><p><a href="menu.html">Menu</a></p><p><a href="admin.html">Admin</a></p></div>
+            </div>
+        </div>
+        <div class="text-center p-3 small" style="background-color: rgba(0, 0, 0, 0.05);">
+            &copy; 2025 Copyright: FreshBites Canteen. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/data.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script>
+        // Check for student login status on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const isStudent = localStorage.getItem("isStudent") === "true";
+            const loginForm = document.getElementById('student-login-form');
+            const profileContent = document.getElementById('student-profile-content');
+            const userNameElement = document.getElementById('current-user-name');
+            const currentUser = localStorage.getItem("currentUser") || "Student";
+
+            if (loginForm && profileContent) {
+                if (isStudent) {
+                    loginForm.style.display = 'none';
+                    profileContent.style.display = 'block';
+                    if (userNameElement) {
+                        // Capitalize the first letter for display
+                        userNameElement.textContent = currentUser.charAt(0).toUpperCase() + currentUser.slice(1);
+                    }
+                } else {
+                    loginForm.style.display = 'block';
+                    profileContent.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
